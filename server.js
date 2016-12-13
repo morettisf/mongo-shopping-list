@@ -64,7 +64,7 @@ app.post('/items', function(req, res) {
 app.put('/items/:id', function(req, res) {
     var idParam = req.params.id
     var newName = req.body.name
-    
+
     Item.update( 
         { _id: idParam }, { $set: { name: newName } },
         function(err, item) {

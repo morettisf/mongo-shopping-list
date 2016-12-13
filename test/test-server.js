@@ -101,7 +101,7 @@ describe('Shopping List', function() {
     it('put - if no ID in endpoint', function(done) {
       chai.request(app)
         .put('/items')
-        .send({'name': 'beats', 'id': 1})
+        .send({'name': 'beats'})
         .end(function(err, res) {
           res.should.have.status(404);
           done();
