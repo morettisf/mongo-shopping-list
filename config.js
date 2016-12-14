@@ -1,8 +1,4 @@
-exports.DATABASE_URL = process.env.DATABASE_URL ||
-                       global.DATABASE_URL ||
-                       (process.env.NODE_ENV === 'production' ?
-                      'mongodb://morettisf:mL@bPW-750!.mlab.com:49466/mongo-test-hosting' :
-                      'mongodb://localhost/shopping-list-dev');
+exports.DATABASE_URL = 'mongodb://morettisf:mLabPW-750!@ds133378.mlab.com:33378/mongo-test-morettisf'
                        
                        
 //                            'mongodb://localhost/shopping-list' :
