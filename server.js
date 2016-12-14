@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 var runServer = function(callback) {
-    mongoose.connect(config.DATABASE_URL, function(err) {
+    mongoose.connect(config.DATABASE_URL, {uri_decode_auth: true}, function(err) {
         if (err && callback) {
             return callback(err);
         }
@@ -49,6 +49,7 @@ app.get('/items', function(req, res) {
 });
 
 app.post('/items', function(req, res) {
+    
     Item.create({
         name: req.body.name
     }, function(err, item) {
@@ -64,6 +65,8 @@ app.post('/items', function(req, res) {
 app.put('/items/:id', function(req, res) {
     var idParam = req.params.id
     var newName = req.body.name
+
+
 
     Item.update( 
         { _id: idParam }, { $set: { name: newName } },
